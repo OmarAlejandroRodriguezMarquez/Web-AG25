@@ -1,0 +1,17 @@
+<h1>Hola {{nombre}}</h1>
+<!--<p>La suma es: {{suma(2,3)}}</p>--> 
+
+@if(resultado > 10){
+<p>El resultado es: {{resultado}}</p>
+}
+@else{
+  <p>El resultado es menor o igual a 10</p>
+}
+
+
+@for(animal of animales; track animal){
+    <p>{{animal}}</p>
+}
+
+<p>{{animales[1]}}</p>
+<button (click)="suma(9,0)" class="btn btn-danger">Sumar</button>
