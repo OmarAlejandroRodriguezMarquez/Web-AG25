@@ -21,6 +21,13 @@ public class NoticiaService : INoticiaService
         return Task.FromResult(nuevaNoticia);
     }
 
+    public async Task<Noticia> GuardarNoticiaDb(Noticia noticia)
+    {
+        context.Noticias.Add(noticia);
+        await context.SaveChangesAsync();
+        return noticia;
+    }
+
     //!Método asíncrono
     public async Task<List<Noticia>> ObtenerNoticiasDb()
     {

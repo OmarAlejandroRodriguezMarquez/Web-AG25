@@ -49,4 +49,11 @@ public class NoticiasController : ControllerBase
         var noticias = await noticiaService.ObtenerNoticiasDb();
         return noticias;
     }
+
+    [HttpPost("guardarnoticia")]
+    public async Task<Noticia> GuardarNoticia([FromBody] Noticia noticia)
+    {
+        var nuevaNoticia = await noticiaService.GuardarNoticiaDb(noticia);
+        return nuevaNoticia;
+    }
 }
