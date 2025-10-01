@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
@@ -42,4 +43,10 @@ public class NoticiasController : ControllerBase
         return nuevaNoticia.Result;
     }
 
+    [HttpGet("basedatos")]
+    public async Task<List<Noticia>> NoticiasDb()
+    {
+        var noticias = await noticiaService.ObtenerNoticiasDb();
+        return noticias;
+    }
 }

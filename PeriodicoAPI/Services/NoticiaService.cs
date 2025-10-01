@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 
 public class NoticiaService : INoticiaService
 {
@@ -18,5 +19,18 @@ public class NoticiaService : INoticiaService
         context.SaveChanges();
 
         return Task.FromResult(nuevaNoticia);
+    }
+
+    //!Método asíncrono
+    public async Task<List<Noticia>> ObtenerNoticiasDb()
+    {
+        //?Creamos una lista vacía
+        List<Noticia> noticias = new List<Noticia>();
+
+        //?Obtenemos las noticias de la base de datos
+        noticias = await context.Noticias.ToListAsync();
+
+        //?Devolvemos la lista de noticias
+        return noticias;
     }
 }
