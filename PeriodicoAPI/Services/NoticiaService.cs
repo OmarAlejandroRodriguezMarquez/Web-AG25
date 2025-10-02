@@ -8,6 +8,34 @@ public class NoticiaService : INoticiaService
     {
         this.context = context;
     }
+
+    public async Task<Noticia> ActualizarNoticia(int id)
+    {
+        Noticia noticia = new Noticia();
+        noticia = await context.Noticias.FirstOrDefaultAsync(n => n.Id == id);
+
+        noticia.Titulo = "Noticia actualizada";
+        noticia.Fecha = DateTime.Now;
+
+        context.Noticias.Update(noticia);
+        await context.SaveChangesAsync();
+        return noticia;
+    }
+
+    public async Task<bool> EliminarNoticia(int id)
+    {
+        Noticia noticia = new Noticia();
+        noticia = await context.Noticias.FirstOrDefaultAsync(n => n.Id == id);
+
+        context.Noticias.Remove(noticia);
+        var result = await context.SaveChangesAsync();
+        if (result > 0)
+        {
+            return true;
+        }
+        return false;
+    }
+
     public Task<Noticia> GuardarNoticia(Noticia noticia)
     {
         Noticia nuevaNoticia = new Noticia();
@@ -25,6 +53,13 @@ public class NoticiaService : INoticiaService
     {
         context.Noticias.Add(noticia);
         await context.SaveChangesAsync();
+        return noticia;
+    }
+
+    public async Task<Noticia> ObtenerNoticiaPorId(int id)
+    {
+        Noticia noticia = new Noticia();
+        noticia = await context.Noticias.FirstOrDefaultAsync(n => n.Id == id);
         return noticia;
     }
 

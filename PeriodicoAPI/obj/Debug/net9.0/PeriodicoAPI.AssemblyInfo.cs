@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PeriodicoAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d055c3e946277c2034f08dc156c7f07e8cc81bd7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+292df8438a283d426ba68d531d510965221530c2")]
 [assembly: System.Reflection.AssemblyProductAttribute("PeriodicoAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PeriodicoAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

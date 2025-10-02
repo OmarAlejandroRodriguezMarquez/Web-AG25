@@ -56,4 +56,25 @@ public class NoticiasController : ControllerBase
         var nuevaNoticia = await noticiaService.GuardarNoticiaDb(noticia);
         return nuevaNoticia;
     }
+
+    [HttpGet("obtener/{id}")]
+    public async Task<Noticia> ObtenerNoticiaPorId(int id)
+    {
+        var noticia = await noticiaService.ObtenerNoticiaPorId(id);
+        return noticia;
+    }
+
+    [HttpDelete("eliminar/{id}")]
+    public async Task<bool> EliminarNoticia(int id)
+    {
+        var resultado = await noticiaService.EliminarNoticia(id);
+        return resultado;
+    }
+
+    [HttpPut("actualizar/{id}")]
+    public async Task<Noticia> ActualizarNoticia(int id)
+    {
+        var resultado = await noticiaService.ActualizarNoticia(id);
+        return resultado;
+    }
 }
